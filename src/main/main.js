@@ -18,11 +18,21 @@ function createWindow() {
     mainWindow = new BrowserWindow({
       width: 1200,
       height: 800,
+      show: false, // Don't show until ready
       webPreferences: {
         preload: join(__dirname, 'preload.js'),
         contextIsolation: true,
         nodeIntegration: false,
-        sandbox: false
+        sandbox: false,
+        webSecurity: true
+      }
+    });
+
+    // Show window when ready
+    mainWindow.once('ready-to-show', () => {
+      mainWindow.show();
+      if (isDev) {
+        mainWindow.webContents.openDevTools();
       }
     });
   } catch (error) {
@@ -47,20 +57,36 @@ function createWindow() {
 
   if (isDev) {
     mainWindow.loadURL('http://localhost:5173');
-    mainWindow.webContents.openDevTools();
   } else {
-    // In production, dist is at the same level as dist-electron
-    const htmlPath = join(__dirname, '../dist/index.html');
-    console.log('Loading HTML from:', htmlPath);
-    mainWindow.loadFile(htmlPath).catch(err => {
-      console.error('Failed to load HTML file:', err);
-      // Try alternative path
-      const altPath = join(process.resourcesPath || __dirname, '../dist/index.html');
-      console.log('Trying alternative path:', altPath);
-      mainWindow.loadFile(altPath).catch(err2 => {
-        console.error('Failed to load from alternative path:', err2);
-      });
-    });
+    // In production, try multiple paths
+    // When packaged, files are in resources/app/
+    const htmlPaths = [
+      join(__dirname, '../dist/index.html'), // Development build
+      join(process.resourcesPath, 'app/dist/index.html'), // Packaged app (Windows)
+      join(app.getAppPath(), 'dist/index.html'), // Alternative packaged path
+    ];
+
+    let loaded = false;
+    for (const htmlPath of htmlPaths) {
+      if (existsSync(htmlPath)) {
+        console.log('Loading HTML from:', htmlPath);
+        mainWindow.loadFile(htmlPath).then(() => {
+          console.log('Successfully loaded HTML');
+          loaded = true;
+        }).catch(err => {
+          console.error('Failed to load HTML file from', htmlPath, ':', err);
+        });
+        break;
+      }
+    }
+
+    if (!loaded) {
+      console.error('Could not find index.html in any expected location');
+      console.log('__dirname:', __dirname);
+      console.log('process.resourcesPath:', process.resourcesPath);
+      console.log('app.getAppPath():', app.getAppPath());
+      console.log('process.cwd():', process.cwd());
+    }
   }
 
   // Add error handlers for debugging

@@ -26,6 +26,12 @@
       "field-config.json",
       "package.json"
     ],
+    "extraResources": [
+      {
+        "from": "field-config.json",
+        "to": "field-config.json"
+      }
+    ],
     "win": {
       "target": ["nsis"],
       "icon": "build/icon.ico"
