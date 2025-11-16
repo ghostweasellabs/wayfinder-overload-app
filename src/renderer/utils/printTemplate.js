@@ -54,13 +54,10 @@ export function generatePrintHTML(formData, fieldConfig) {
     }
     
     .print-header h1 {
-      color: #304b7a;
-    }
-    
-    .print-header h1 {
       margin: 0;
       font-size: 24pt;
       font-weight: bold;
+      color: #304b7a;
     }
     
     .print-field {
