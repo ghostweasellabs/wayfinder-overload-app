@@ -8,7 +8,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import FormList from './components/FormList';
 import { generatePrintHTML } from './utils/printTemplate';
-import { useToast } from './hooks/useToast';
+import { useToast } from './hooks/useToast.jsx';
 import { ConfirmDialog } from './components/ConfirmDialog';
 
 function App() {
