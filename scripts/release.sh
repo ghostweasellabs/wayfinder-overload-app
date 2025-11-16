@@ -14,8 +14,8 @@ echo "Building version $VERSION..."
 echo "Building application..."
 yarn build
 
-# Build Windows installer
-echo "Building Windows installer..."
+# Build Windows installer (x64/AMD64)
+echo "Building Windows installer (x64/AMD64)..."
 yarn electron:build:win
 
 # Find the installer file

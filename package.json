@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
     "electron:build": "vite build && electron-builder",
-    "electron:build:win": "vite build && electron-builder --win"
+    "electron:build:win": "vite build && electron-builder --win --x64"
   },
   "keywords": ["electron", "expedition-log", "form", "wayfinder"],
   "author": "GhostWeaselLabs",
