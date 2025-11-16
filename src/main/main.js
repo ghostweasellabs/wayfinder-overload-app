@@ -15,12 +15,19 @@ function createWindow() {
   const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
   
   try {
+    // Resolve preload script path
+    const preloadPath = isDev 
+      ? join(__dirname, 'preload.js')
+      : join(__dirname, 'preload.js'); // In packaged app, preload is in same dir as main
+    
+    console.log('Preload path:', preloadPath);
+    
     mainWindow = new BrowserWindow({
       width: 1200,
       height: 800,
       show: false, // Don't show until ready
       webPreferences: {
-        preload: join(__dirname, 'preload.js'),
+        preload: preloadPath,
         contextIsolation: true,
         nodeIntegration: false,
         sandbox: false,
@@ -58,16 +65,24 @@ function createWindow() {
   if (isDev) {
     mainWindow.loadURL('http://localhost:5173');
   } else {
-    // In production, try multiple paths
-    // When packaged, files are in resources/app/
+    // In production, when packaged by electron-builder:
+    // - Files are in resources/app/
+    // - __dirname points to resources/app/dist-electron/
+    // - dist/ is at resources/app/dist/
+    const appPath = app.getAppPath();
+    console.log('App path:', appPath);
+    console.log('__dirname:', __dirname);
+    
+    // Try paths in order of likelihood
     const htmlPaths = [
-      join(__dirname, '../dist/index.html'), // Development build
-      join(process.resourcesPath, 'app/dist/index.html'), // Packaged app (Windows)
-      join(app.getAppPath(), 'dist/index.html'), // Alternative packaged path
+      join(appPath, 'dist/index.html'), // Most reliable - uses app.getAppPath()
+      join(__dirname, '../dist/index.html'), // Relative to dist-electron
+      join(process.resourcesPath || appPath, 'app/dist/index.html'), // Alternative
     ];
 
     let loaded = false;
     for (const htmlPath of htmlPaths) {
+      console.log('Checking path:', htmlPath, existsSync(htmlPath) ? 'EXISTS' : 'not found');
       if (existsSync(htmlPath)) {
         console.log('Loading HTML from:', htmlPath);
         mainWindow.loadFile(htmlPath).then(() => {
@@ -82,10 +97,17 @@ function createWindow() {
 
     if (!loaded) {
       console.error('Could not find index.html in any expected location');
-      console.log('__dirname:', __dirname);
-      console.log('process.resourcesPath:', process.resourcesPath);
-      console.log('app.getAppPath():', app.getAppPath());
-      console.log('process.cwd():', process.cwd());
+      // Show error to user
+      mainWindow.webContents.once('did-finish-load', () => {
+        mainWindow.webContents.executeJavaScript(`
+          document.body.innerHTML = '<div style="padding: 20px; font-family: sans-serif;">
+            <h1>Error Loading Application</h1>
+            <p>Could not find index.html file.</p>
+            <p>App Path: ${appPath}</p>
+            <p>__dirname: ${__dirname}</p>
+          </div>';
+        `);
+      });
     }
   }
 
