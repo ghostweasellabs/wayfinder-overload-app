@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-electron
+release
+.venv
+*.log
+.DS_Store
+*.local
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.env
+.env.local
+

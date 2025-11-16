@@ -1,0 +1,392 @@
+{
+  "fields": [
+    {
+      "name": "date",
+      "label": "Date",
+      "type": "date",
+      "page": 1
+    },
+    {
+      "name": "day_number",
+      "label": "Day #",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "region_route",
+      "label": "Region–Route",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "odo_start",
+      "label": "Odo Start",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "odo_end",
+      "label": "Odo End",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "distance",
+      "label": "Dist",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "fuel_start",
+      "label": "Fuel Start",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "fuel_end",
+      "label": "Fuel End",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "mpg",
+      "label": "MPG",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "tire_psi",
+      "label": "Tire PSI",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "expedition_leader",
+      "label": "Expedition Leader",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "wx",
+      "label": "WX",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "temperature",
+      "label": "Temp",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "wind",
+      "label": "Wind",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "radio_channel",
+      "label": "Radio Ch.",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "team_name",
+      "label": "Name",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "team_role",
+      "label": "Role",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "team_e",
+      "label": "E",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "team_m",
+      "label": "M",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "team_notes",
+      "label": "Notes",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "objectives_today",
+      "label": "Objectives (Today)",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "time",
+      "label": "Time",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "position_lat_lon",
+      "label": "Position (Lat/Lon)",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "terrain",
+      "label": "Terrain",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "event_action",
+      "label": "Event / Action",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "sketch_map_box",
+      "label": "Sketch / Map Box",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "notes_observations",
+      "label": "Notes / Observations",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "end_of_day_summary",
+      "label": "End-of-Day Summary",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "top_3_lessons_learned",
+      "label": "Top 3 Lessons Learned",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "next_day_objectives",
+      "label": "Next-Day Objectives",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "equipment_vehicles_to_inspect",
+      "label": "Equipment / Vehicles to Inspect",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "distance_today",
+      "label": "Distance Today",
+      "type": "number",
+      "page": 1
+    },
+    {
+      "name": "drive_stop_time",
+      "label": "Drive / Stop Time",
+      "type": "text",
+      "page": 1
+    },
+    {
+      "name": "recoveries",
+      "label": "Recoveries",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "lessons_learned",
+      "label": "Lessons Learned",
+      "type": "textarea",
+      "page": 1
+    },
+    {
+      "name": "weather_trends",
+      "label": "Weather Trends (M / MD / E)",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "temp",
+      "label": "Temp",
+      "type": "number",
+      "page": 2
+    },
+    {
+      "name": "wind_2",
+      "label": "Wind",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "sky",
+      "label": "Sky",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "precip",
+      "label": "Precip",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "terrain_sand",
+      "label": "Sand",
+      "type": "checkbox",
+      "page": 2
+    },
+    {
+      "name": "terrain_rock",
+      "label": "Rock",
+      "type": "checkbox",
+      "page": 2
+    },
+    {
+      "name": "terrain_mud",
+      "label": "Mud",
+      "type": "checkbox",
+      "page": 2
+    },
+    {
+      "name": "terrain_water",
+      "label": "Water",
+      "type": "checkbox",
+      "page": 2
+    },
+    {
+      "name": "terrain_snow",
+      "label": "Snow",
+      "type": "checkbox",
+      "page": 2
+    },
+    {
+      "name": "terrain_forest",
+      "label": "Forest",
+      "type": "checkbox",
+      "page": 2
+    },
+    {
+      "name": "terrain_gravel",
+      "label": "Gravel",
+      "type": "checkbox",
+      "page": 2
+    },
+    {
+      "name": "maintenance_oil",
+      "label": "Oil",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "maintenance_coolant",
+      "label": "Coolant",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "maintenance_brakes",
+      "label": "Brakes",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "maintenance_tires",
+      "label": "Tires",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "maintenance_suspension",
+      "label": "Suspension",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "maintenance_lights",
+      "label": "Lights",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "maintenance_winch",
+      "label": "Winch",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "maintenance_recovery_gear",
+      "label": "Recovery Gear",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "maintenance_electrics",
+      "label": "Electrics",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "environmental_observations",
+      "label": "Environmental Observations",
+      "type": "textarea",
+      "page": 2
+    },
+    {
+      "name": "action_items_next_steps",
+      "label": "Action Items / Next Steps",
+      "type": "textarea",
+      "page": 2
+    },
+    {
+      "name": "sunrise",
+      "label": "Sunrise",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "sunset",
+      "label": "Sunset",
+      "type": "text",
+      "page": 2
+    },
+    {
+      "name": "leadership_challenges",
+      "label": "Leadership Challenges Faced Today",
+      "type": "textarea",
+      "page": 2
+    },
+    {
+      "name": "team_cohesion_notes",
+      "label": "Team Cohesion Notes (Trust, Friction, Breakthroughs)",
+      "type": "textarea",
+      "page": 2
+    },
+    {
+      "name": "self_awareness_journal",
+      "label": "Self-Awareness Journal (Reactions, Decisions, Growth)",
+      "type": "textarea",
+      "page": 2
+    },
+    {
+      "name": "lessons_to_carry_forward",
+      "label": "Lessons to Carry Forward",
+      "type": "textarea",
+      "page": 2
+    }
+  ],
+  "metadata": {
+    "source": "WayFinder Expedition Log v3.1",
+    "total_fields": 69
+  }
+}
